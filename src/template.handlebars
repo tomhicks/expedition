@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="reset.css"/>
+    <link rel="stylesheet" type="text/css" href="expedition.css"/>
+    <script>
+      var egg = {{{json features}}}
+    </script>
+  </head>
+  <body>
+    <ul class="b-feature-list">
+      {{#each features}}
+        <li class="b-feature b-feature_result_{{result}}">
+          <h2 class="b-feature__name b-feature__name_result_{{result}}">Feature: {{name}}</h2>
+
+          <ul class="b-scenario-list">
+            {{#each scenarios}}
+              <li class="b-scenario b-scenario_result_{{result}}">
+                <h3 class="b-scenario__name b-scenario__name_result_{{result}}">Scenario: {{name}}</h3>
+
+                <ul class="b-step-list">
+                  {{#each steps}}
+                    <li class="b-step b-step_result_{{result}}">
+                      <h3 class="b-step__name  b-step__name_result_{{result}}">
+                        <span class="b-step__keyword">{{keyword}}</span>
+                        <span class="b-step__definition">{{name}}</span>
+                      </h3>
+                    </li>
+                  {{/each}}
+                </ul>
+                {{#if screenshot}}
+                  <img class="b-scenario__screenshot" src="{{screenshot.url}}">
+                {{/if}}
+              </li>
+            {{/each}}
+          </ul>
+
+        </li>
+      {{/each}}
+    </ul
+  </body>
+</html>

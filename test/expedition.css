@@ -1,0 +1,92 @@
+body {
+    padding: 1em;
+    background: #595959;
+    color: #ddd;
+}
+
+.b-feature__name
+{
+    font-size: 1.2em;
+}
+
+.b-feature__name,
+.b-scenario__name,
+.b-step__name
+{
+    line-height: 1.5;
+    font-weight: lighter;
+    position: relative;
+}
+
+.b-feature__name:before,
+.b-scenario__name:before,
+.b-step__name:before
+{
+    content: ' ';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: 0.5em;
+    left: -15px;
+    margin-right: 0.5em;
+
+    background: #666;
+}
+
+.b-feature__name_result_success:before,
+.b-scenario__name_result_success:before,
+.b-step__name_result_success:before
+{
+    background: #00B85F;
+}
+
+.b-feature__name_result_failure:before,
+.b-scenario__name_result_failure:before,
+.b-step__name_result_failure:before
+{
+    background: #FF2E41;
+}
+
+.b-feature__name_result_failure,
+.b-scenario__name_result_failure,
+.b-step__name_result_failure
+{
+    color: #f6f6f6;
+}
+
+.b-step__keyword
+{
+    display: block;
+    position: absolute;
+}
+
+.b-step__definition
+{
+    display: block;
+    margin-left: 3.5em;
+}
+
+
+.b-feature
+{
+    margin-bottom: 2em;
+}
+
+.b-scenario
+{
+    margin-bottom: 1em;
+}
+
+.b-feature,
+.b-scenario,
+.b-step
+{
+    margin-left: 15px;
+}
+
+.b-scenario__screenshot
+{
+    width: 320px;
+    margin: 0.5em 1em 0.5em;
+}
