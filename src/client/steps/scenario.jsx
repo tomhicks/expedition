@@ -8,7 +8,7 @@ var Scenario = React.createClass({
 
   getInitialState: function () {
     return {
-      open: false
+      open: this.props.scenario.result === 'failure'
     };
   },
 

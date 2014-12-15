@@ -7,7 +7,7 @@ var Feature = React.createClass({
 
   getInitialState: function () {
     return {
-      open: false
+      open: this.props.feature.result === 'failure'
     };
   },
 
