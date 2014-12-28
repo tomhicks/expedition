@@ -1,6 +1,6 @@
 'use strict';
-require('./reset.css');
-require('./expedition.scss');
+require('./style/reset.css');
+require('./style/expedition.scss');
 
 var R = require('ramda');
 
