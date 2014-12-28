@@ -13,6 +13,7 @@ body {
 .b-feature__name
 {
     font-size: 1.2em;
+    margin: 0 0 1em;
 }
 
 .b-feature__name,
@@ -112,48 +113,40 @@ body {
     background: $pendingBright;
 }
 
-.b-feature,
+.b-feature {
+    margin: 0 0 1em;
+}
+
 .b-scenario {
     padding: 0.7em;
-    margin: 0.7em 0;
-    border-width: 1px;
+    margin-bottom: 1px;
+    border-style: solid;
     border-left-width: 4px;
+    background: #fafafc;
 }
 
 .b-feature_result_failed,
 .b-scenario_result_failed
 {
-    border-color: rgba(255, 0, 0, 0.1);
-    border-left: 4px solid $failureBright;
-    background: rgba(255, 150, 120, 0.1);
+    border-left-color: $failureBright;
 }
 
 .b-feature_result_passed,
 .b-scenario_result_passed
 {
-    border-color: rgba(0, 255, 0, 0.1);
-    border-left: 4px solid $successBright;
-    background-color: rgba(150, 255, 150, 0.05);
+    border-left-color: $successBright;
 }
 
 .b-feature_result_skipped,
 .b-scenario_result_skipped
 {
-    border-color: rgba(0, 200, 200, 0.1);
-    border-left: 4px solid $skippedBright;
-    background-color: rgba(150, 150, 255, 0.05);
+    border-left-color: $skippedBright;
 }
 
 .b-feature_result_pending,
 .b-scenario_result_pending
 {
-    border-color: rgba(200, 200, 0, 0.1);
-    border-left: 4px solid $pendingBright;
-    background-color: rgba(255, 225, 60, 0.05);
-}
-
-.b-scenario {
-    margin-bottom: 0;
+    border-left-color: $pendingBright;
 }
 
 .b-step {
