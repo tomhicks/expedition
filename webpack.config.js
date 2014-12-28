@@ -7,7 +7,9 @@ module.exports = {
     },
     module: {
         loaders: [
+            { test: /\.json$/, loader: "json" },
             { test: /\.jsx$/, loader: "jsx" },
+            { test: /\.scss$/, loader: "style!css!sass" },
             { test: /\.css$/, loader: "style!css" }
         ]
     },

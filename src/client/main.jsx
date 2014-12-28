@@ -1,9 +1,13 @@
 'use strict';
 require('./reset.css');
-require('./expedition.css');
+require('./expedition.scss');
+
+var R = require('ramda');
 
 var React = require('react');
 var FeatureList = require('./steps/feature-list');
+
+var features = require('./data/cucumber.json');
 
 var ExpeditionApp = React.createClass({
   displayName: 'ExpeditionApp',
@@ -11,13 +15,20 @@ var ExpeditionApp = React.createClass({
     return (
       <FeatureList
         features = {this.props.features}
-      >
-        Hellos
-      </FeatureList>
+      />
     );
   }
 });
 
+var formatter = require('./data/summarizer');
+
+features = features.map(formatter.removeBackground);
+features = features.map(function (feature) {
+  feature.result = formatter.getResult(feature);
+  return feature;
+});
+console.log(features);
+
 React.render(<ExpeditionApp
-  features = {window._pioneerResults}
+  features = {features}
 />, document.body);

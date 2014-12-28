@@ -8,7 +8,7 @@ var Scenario = React.createClass({
 
   getInitialState: function () {
     return {
-      open: this.props.scenario.result === 'failure'
+      open: this.props.scenario.result.status === 'failed'
     };
   },
 
@@ -23,9 +23,9 @@ var Scenario = React.createClass({
     }
 
     return (
-      <li className={"b-scenario b-scenario_result_" + scenario.result}>
+      <li className={"b-scenario b-scenario_result_" + scenario.result.status}>
         <h3
-          className={"b-scenario__name b-scenario__name_result_" + scenario.result + ' block_' + (this.state.open ? 'open' : 'closed')}
+          className={"b-scenario__name b-scenario__name_result_" + scenario.result.status + ' block_' + (this.state.open ? 'open' : 'closed')}
           onClick={this.toggleShowChildren}
         >
           Scenario: {scenario.name}
