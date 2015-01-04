@@ -1,27 +1,38 @@
 {
   "name": "expedition",
-  "version": "0.0.0",
-  "description": "HTML reporter for pioneer.js",
-  "main": "index.js",
+  "version": "0.1.0",
+  "description": "HTML reporter for cucumber",
+  "main": "./src/writer.js",
+  "bin": {
+    "expedition": "./bin/expedition"
+  },
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "node test/run.js"
+    "prepublish": "make prepublish"
   },
-  "author": "",
+  "author": "Tom Hicks (http://tomhicks.github.io/)",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/tomhicks/expedition.git"
+  },
   "license": "BSD-2-Clause",
   "dependencies": {
-    "react": "~0.12.1",
-    "webpack": "~1.4.13",
-    "jsx-loader": "~0.12.2",
-    "json-loader": "~0.5.1",
     "ramda": "~0.8.0",
-    "sass-loader": "~0.3.1"
+    "handlebars": "~2.0.0",
+    "fs-extra": "~0.13.0"
   },
   "devDependencies": {
+    "react": "~0.12.1",
+    "jsx-loader": "~0.12.2",
+    "webpack": "~1.4.13",
+    "json-loader": "~0.5.1",
+    "sass-loader": "~0.3.1",
     "webpack-dev-server": "~1.6.6",
     "style-loader": "~0.8.2",
-    "css-loader": "~0.9.0"
+    "css-loader": "~0.9.0",
+    "extract-text-webpack-plugin": "~0.3.6",
+    "minimist": "~1.1.0"
   }
 }

@@ -1,12 +1,15 @@
 <html>
   <head>
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="assets/expedition.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="build/expedition.css"/>
     <script>
       var _cucumberFeatures = {{{json features}}};
     </script>
   </head>
   <body>
-    <script src="build/bundle.js"></script>
+    {{#if dev}}
+    <script src="/webpack-dev-server.js"></script>
+    {{/if}}
+    <script src="build/expedition.js"></script>
   </body>
 </html>

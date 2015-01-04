@@ -8,7 +8,7 @@ var React = require('react');
 var FeatureList = require('./steps/feature-list');
 var Summary = require('./summary/summary');
 
-var features = require('./data/cucumber.json');
+var features = window._cucumberFeatures || [];
 
 var ExpeditionApp = React.createClass({
   displayName: 'ExpeditionApp',

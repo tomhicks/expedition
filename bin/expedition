@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+
+var stdin = process.openStdin();
+var data = "";
+
+var argv = require('minimist')(process.argv.slice(2));
+
+stdin.on('data', function (chunk) {
+  data += chunk;
+});
+
+stdin.on('end', function () {
+  var options = {};
+
+  if (typeof argv.dir === 'string') {
+    options.dir = argv.dir;
+  }
+
+  var writer = require("../src/writer")(options);
+
+  writer.writeReport(JSON.parse(data));
+});
