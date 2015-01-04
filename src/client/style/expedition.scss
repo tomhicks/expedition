@@ -1,13 +1,13 @@
-$failureBright: #FF2E41;
-$successBright: #00B85F;
-$skippedBright: #00BFDF;
-$pendingBright: #FFAF30;
-
+@import 'settings';
 
 body {
-    padding: 1em;
-    background: #fff;
-    color: #333;
+    background: $backgroundColor;
+    color: $textColor;
+    font-weight: 300;
+}
+
+.b-feature-list {
+    padding: 0 1em;
 }
 
 .b-feature__name
@@ -20,10 +20,8 @@ body {
 .b-scenario__name,
 .b-step__name
 {
-    font-weight: lighter;
     position: relative;
 }
-
 
 .b-feature__name,
 .b-scenario__name
@@ -31,6 +29,7 @@ body {
     cursor: pointer;
     font-weight: normal;
     margin-left: 17px;
+    font-weight: 400;
 }
 
 
@@ -80,49 +79,16 @@ body {
     border-left-color: $pendingBright;
 }
 
-.b-step__name:before
-{
-    content: ' ';
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    position: absolute;
-    top: 0.6em;
-    left: -1em;
-    margin-right: 0.5em;
-    background: black;
-}
-
-.b-step__name_result_passed:before
-{
-    background: $successBright;
-}
-
-.b-step__name_result_failed:before
-{
-    background: $failureBright;
-}
-
-.b-step__name_result_skipped:before
-{
-    background: $skippedBright;
-}
-
-.b-step__name_result_pending:before
-{
-    background: $pendingBright;
-}
-
 .b-feature {
-    margin: 0 0 1em;
+    margin: 1em 0;
 }
 
 .b-scenario {
     padding: 0.7em;
-    margin-bottom: 1px;
     border-style: solid;
     border-left-width: 4px;
-    background: #fafafc;
+    background: $panelBackgroundBright;
+    border-bottom: 1px solid $backgroundColor;
 }
 
 .b-feature_result_failed,
@@ -149,10 +115,45 @@ body {
     border-left-color: $pendingBright;
 }
 
-.b-step {
-    margin-left: 1em;
+.b-step
+{
+    position: relative;
     margin-bottom: 0.3em;
     line-height: 1.8;
+}
+
+.b-step__name:before
+{
+    content: ' ';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: black;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -0.2em;
+    margin-right: 0.5em;
+}
+
+.b-step__name_result_passed:before
+{
+    background: $successBright;
+}
+
+.b-step__name_result_failed:before
+{
+    background: $failureBright;
+}
+
+.b-step__name_result_skipped:before
+{
+    background: $skippedBright;
+}
+
+.b-step__name_result_pending:before
+{
+    background: $pendingBright;
 }
 
 .b-step:first-child {
@@ -167,12 +168,13 @@ body {
 {
     display: block;
     position: absolute;
+    margin-left: 1em;
 }
 
 .b-step__definition
 {
     display: block;
-    margin-left: 3.5em;
+    margin-left: 4.5em;
 }
 
 .b-scenario__screenshot

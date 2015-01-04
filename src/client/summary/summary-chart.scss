@@ -1,0 +1,38 @@
+@import '../style/settings';
+
+.b-summary-chart
+{
+  height: 8px;
+  background: white;
+  position: fixed;
+  width: 33.333333%;
+  z-index: 1;
+  top: 0;
+}
+
+.b-summary-chart__bar
+{
+  height: 100%;
+  float: left;
+  background: red;
+}
+
+.b-summary-chart__bar_result_failed
+{
+  background: $failureBright;
+}
+
+.b-summary-chart__bar_result_passed
+{
+  background: $successBright;
+}
+
+.b-summary-chart__bar_result_skipped
+{
+  background: $skippedBright;
+}
+
+.b-summary-chart__bar_result_pending
+{
+  background: $pendingBright;
+}

@@ -1,0 +1,68 @@
+@import '../style/settings';
+
+.b-element-summaries
+{
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+  margin-top: 8px;
+}
+
+.b-by-result
+{
+  display: table-cell;
+  width: 100 / 3 * 1%;
+  position: relative;
+
+  &:after {
+    content: ' ';
+    position: absolute;
+    right: 0;
+    top: -8px;
+    bottom: 0;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+  }
+
+  &:last-child:after
+  {
+    display: none;
+  }
+
+}
+
+.b-by-result__header
+{
+  padding: 0.5em;
+  background: $panelBackgroundDark;
+  color: $panelBackgroundBright;
+  font-size: 1.4em;
+}
+
+.b-by-result__header__count
+{
+  font-size: 2em;
+  font-weight: 100;
+}
+
+$percentageScale: 1.4em;
+
+.b-by-result__header__percentage
+{
+  position: absolute;
+  right: 0.5em / $percentageScale * 1em;
+  bottom: 0.5em / $percentageScale * 1em;
+  font-size: $percentageScale;
+  font-weight: 100;
+}
+
+.b-by-result__header__percentage_result_failed
+{
+  color: $failureBright;
+}
+
+.b-by-result__header__percentage_result_passed
+{
+  color: $successBright;
+}
