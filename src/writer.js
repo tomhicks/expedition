@@ -1,9 +1,8 @@
 'use strict';
 
-var fs = require('fs');
+var fs = require('fs-extra');
 var path = require('path');
 
-var fsExtra = require('fs-extra');
 var R = require('ramda');
 var Handlebars = require('handlebars');
 
@@ -30,8 +29,8 @@ module.exports = function Writer(options) {
           dev: !!config.dev
         };
 
-        fsExtra.outputFile(path.join(config.dir, 'index.html'), template(templateData), function () {
-          fsExtra.copy(
+        fs.outputFile(path.join(config.dir, 'index.html'), template(templateData), function () {
+          fs.copy(
             path.resolve(path.join(__dirname, '../build')),
             path.join(config.dir, 'build'),
             done

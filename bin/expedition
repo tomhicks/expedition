@@ -1,26 +1,38 @@
 #!/usr/bin/env node
 
 var stdin = process.openStdin();
-var data = "";
+var expedition = require("../src/writer");
+var fs = require('fs-extra');
 
 var argv = require('minimist')(process.argv.slice(2));
 
-stdin.on('data', function (chunk) {
-  data += chunk;
-});
+var options = {};
+if (typeof argv.dir === 'string') {
+  options.dir = argv.dir;
+}
 
-stdin.on('end', function () {
-  var options = {};
+if (argv.dev === true || argv.dev === "true") {
+  options.dev = true;
+}
 
-  if (typeof argv.dir === 'string') {
-    options.dir = argv.dir;
-  }
+var writer = expedition(options);
 
-  if (argv.dev === true || argv.dev === "true") {
-    options.dev = true;
-  }
+if (argv.input && typeof argv.input === 'string') {
+  fs.readJson(argv.input, function (err, json) {
+    writer.writeReport(json, function () {
+      process.exit(0);
+    });
+  });
+} else {
+  var data = "";
 
-  var writer = require("../src/writer")(options);
+  stdin.on('data', function (chunk) {
+    data += chunk;
+  });
 
-  writer.writeReport(JSON.parse(data));
-});
+  stdin.on('end', function () {
+    writer.writeReport(JSON.parse(data), function () {
+      process.exit(0);
+    });
+  });
+}
