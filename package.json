@@ -1,6 +1,6 @@
 {
   "name": "expedition",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "HTML reporter for cucumber",
   "main": "./src/writer.js",
   "bin": {
@@ -21,7 +21,8 @@
   "dependencies": {
     "ramda": "~0.8.0",
     "handlebars": "~2.0.0",
-    "fs-extra": "~0.13.0"
+    "fs-extra": "~0.13.0",
+    "minimist": "~1.1.0"
   },
   "devDependencies": {
     "react": "~0.12.1",
@@ -32,7 +33,6 @@
     "webpack-dev-server": "~1.6.6",
     "style-loader": "~0.8.2",
     "css-loader": "~0.9.0",
-    "extract-text-webpack-plugin": "~0.3.6",
-    "minimist": "~1.1.0"
+    "extract-text-webpack-plugin": "~0.3.6"
   }
 }
