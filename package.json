@@ -1,13 +1,14 @@
 {
   "name": "expedition",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "HTML reporter for cucumber",
   "main": "./src/writer.js",
   "bin": {
     "expedition": "./bin/expedition"
   },
   "directories": {
-    "test": "test"
+    "test": "test",
+    "build": "build"
   },
   "scripts": {
     "prepublish": "make prepublish"
