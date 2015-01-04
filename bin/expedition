@@ -16,6 +16,10 @@ stdin.on('end', function () {
     options.dir = argv.dir;
   }
 
+  if (argv.dev === true || argv.dev === "true") {
+    options.dev = true;
+  }
+
   var writer = require("../src/writer")(options);
 
   writer.writeReport(JSON.parse(data));

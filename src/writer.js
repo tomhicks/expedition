@@ -13,7 +13,7 @@ Handlebars.registerHelper('json', function(obj) {
 
 var defaults = {
   dir: './report',
-  dev: true
+  dev: false
 };
 
 module.exports = function Writer(options) {
