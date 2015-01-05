@@ -1,10 +1,14 @@
 #!/usr/bin/env node
 
-var stdin = process.openStdin();
 var expedition = require("../src/writer");
 var fs = require('fs-extra');
 
 var argv = require('minimist')(process.argv.slice(2));
+
+if (argv.version) {
+  console.log(require('../package').version);
+  return;
+}
 
 var options = {};
 if (typeof argv.dir === 'string') {
@@ -19,11 +23,10 @@ var writer = expedition(options);
 
 if (argv.input && typeof argv.input === 'string') {
   fs.readJson(argv.input, function (err, json) {
-    writer.writeReport(json, function () {
-      process.exit(0);
-    });
+    writer.writeReport(json);
   });
 } else {
+  var stdin = process.openStdin();
   var data = "";
 
   stdin.on('data', function (chunk) {
