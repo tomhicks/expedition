@@ -1,6 +1,6 @@
 {
   "name": "expedition",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "HTML reporter for cucumber",
   "main": "./src/writer.js",
   "bin": {
@@ -11,7 +11,8 @@
     "build": "build"
   },
   "scripts": {
-    "prepublish": "make prepublish"
+    "prepublish": "make prepublish",
+    "postpublish": "make postpublish"
   },
   "author": "Tom Hicks (http://tomhicks.github.io/)",
   "repository" : {
