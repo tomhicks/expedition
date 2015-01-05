@@ -52,12 +52,12 @@ body {
     margin-top: -0.3em;
     border: 6px solid transparent;
     border-left: 8px solid black;
-    -webkit-transform-origin: 25% 50%;
-    -webkit-transition: -webkit-transform 100ms ease-out;
+    transform-origin: 25% 50%;
+    transition: transform 100ms ease-out;
 }
 
 .block_open:before {
-    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
 }
 
 .b-feature__name_result_passed:before,

@@ -17,7 +17,7 @@ module.exports = function () {
               { test: /\.css$/, loader: 'style!css' },
               {
                   test: /\.scss$/,
-                  loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
+                  loader: ExtractTextPlugin.extract('style-loader', 'css-loader!autoprefixer-loader!sass-loader')
               }
           ]
       },
