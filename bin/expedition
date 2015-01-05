@@ -3,26 +3,23 @@
 var expedition = require("../src/writer");
 var fs = require('fs-extra');
 
-var argv = require('minimist')(process.argv.slice(2));
+var program = require('commander');
 
-if (argv.version) {
-  console.log(require('../package').version);
-  return;
-}
+program
+  .version(require('../package').version)
+  .option('--dev', 'Run in dev mode. Enables webback-dev-server live-reload in HTML output [false]', false)
+  .option('--input [json file]', 'A cucumber JSON report file. If omitted, takes JSON from stdin')
+  .option('--dir [output directory]', 'The directory into which to write the report [\'./report\']', './report')
+  .parse(process.argv);
 
 var options = {};
-if (typeof argv.dir === 'string') {
-  options.dir = argv.dir;
-}
-
-if (argv.dev === true || argv.dev === "true") {
-  options.dev = true;
-}
+options.dir = program.dir;
+options.dev = program.dev;
 
 var writer = expedition(options);
 
-if (argv.input && typeof argv.input === 'string') {
-  fs.readJson(argv.input, function (err, json) {
+if (program.input && typeof program.input === 'string') {
+  fs.readJson(program.input, function (err, json) {
     writer.writeReport(json);
   });
 } else {

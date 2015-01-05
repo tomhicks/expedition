@@ -21,10 +21,9 @@
   },
   "license": "BSD-2-Clause",
   "dependencies": {
-    "ramda": "~0.8.0",
-    "handlebars": "~2.0.0",
+    "commander": "^2.6.0",
     "fs-extra": "~0.13.0",
-    "minimist": "~1.1.0"
+    "handlebars": "~2.0.0"
   },
   "devDependencies": {
     "autoprefixer-loader": "^1.0.0",
@@ -32,6 +31,7 @@
     "extract-text-webpack-plugin": "~0.3.6",
     "json-loader": "~0.5.1",
     "jsx-loader": "~0.12.2",
+    "ramda": "^0.8.0",
     "react": "~0.12.1",
     "sass-loader": "~0.3.1",
     "style-loader": "~0.8.2",

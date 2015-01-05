@@ -3,21 +3,23 @@
 var fs = require('fs-extra');
 var path = require('path');
 
-var R = require('ramda');
 var Handlebars = require('handlebars');
 
 Handlebars.registerHelper('json', function(obj) {
     return JSON.stringify(obj);
 });
 
-var defaults = {
-  dir: './report',
-  dev: false
-};
-
 module.exports = function Writer(options) {
 
-  var config = R.mixin(defaults, options);
+  function copyAssets(done) {
+    return function () {
+      fs.copy(
+        path.resolve(path.join(__dirname, '../build')),
+        path.join(options.dir, 'build'),
+        done
+      );
+    };
+  }
 
   return {
     writeReport: function (reportData, done) {
@@ -26,16 +28,10 @@ module.exports = function Writer(options) {
 
         var templateData = {
           features: reportData,
-          dev: !!config.dev
+          dev: !!options.dev
         };
 
-        fs.outputFile(path.join(config.dir, 'index.html'), template(templateData), function () {
-          fs.copy(
-            path.resolve(path.join(__dirname, '../build')),
-            path.join(config.dir, 'build'),
-            done
-          );
-        });
+        fs.outputFile(path.join(options.dir, 'index.html'), template(templateData), copyAssets(done));
       });
     }
   };
