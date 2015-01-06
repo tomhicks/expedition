@@ -6,7 +6,7 @@ var path = require('path');
 var Handlebars = require('handlebars');
 
 Handlebars.registerHelper('json', function(obj) {
-    return JSON.stringify(obj);
+  return JSON.stringify(obj);
 });
 
 module.exports = function Writer(options) {
@@ -23,7 +23,7 @@ module.exports = function Writer(options) {
 
   return {
     writeReport: function (reportData, done) {
-      fs.readFile(__dirname + '/template.handlebars', function (err, file) {
+      fs.readFile(path.join(__dirname, 'template.handlebars'), function (err, file) {
         var template = Handlebars.compile(file.toString());
 
         var templateData = {
