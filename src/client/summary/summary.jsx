@@ -10,7 +10,7 @@ function percentage (fraction, precision) {
   return (fraction * 100).toFixed(precision || 0) + '%';
 }
 
-var resultOrder = ['passed', 'failed', 'pending', 'skipped'];
+var resultOrder = ['passed', 'failed', 'undefined', 'pending', 'skipped'];
 
 var ByResult = React.createClass({
     displayName: 'ByResult',

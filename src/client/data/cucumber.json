@@ -990,7 +990,7 @@
             "keyword": "And ",
             "result": {
               "duration": 2047499824,
-              "status": "passed"
+              "status": "undefined"
             },
             "match": {}
           },

@@ -30,7 +30,7 @@ var SummaryChart = React.createClass({
             key = {result.name}
             style = {style}
             className = {"b-summary-chart__bar b-summary-chart__bar_result_" + result.name}
-            title = {result.name}
+            title = {result.count + ' ' + result.name}
           />
         );
       }, results);

@@ -6,6 +6,7 @@ var statusPriority = {
   passed: 10,
   skipped: 20,
   pending: 25,
+  undefined: 28,
   failed: 30
 };
 

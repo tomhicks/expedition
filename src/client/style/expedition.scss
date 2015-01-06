@@ -84,6 +84,12 @@ body {
     border-left-color: $pendingBright;
 }
 
+.b-feature__name_result_undefined:before,
+.b-scenario__name_result_undefined:before
+{
+    border-left-color: $undefinedBright;
+}
+
 .b-feature {
     margin: 1em 0;
 }
@@ -118,6 +124,12 @@ body {
 .b-scenario_result_pending
 {
     border-left-color: $pendingBright;
+}
+
+.b-feature_result_undefined,
+.b-scenario_result_undefined
+{
+    border-left-color: $undefinedBright;
 }
 
 .b-step
@@ -159,6 +171,11 @@ body {
 .b-step__name_result_pending:before
 {
     background: $pendingBright;
+}
+
+.b-step__name_result_undefined:before
+{
+    background: $undefinedBright;
 }
 
 .b-step:first-child {
